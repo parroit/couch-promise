@@ -1,6 +1,6 @@
 {
     "name": "couch-promise",
-    "description": "The best project ever.",
+    "description": "promise based couch client",
     "version": "0.1.0",
     "homepage": "https://github.com/parroit/couch-promise",
     "author": {
@@ -38,5 +38,5 @@
         "lodash": "~2.3.0"
     },
 
-    "keywords": []
+    "keywords": ["couch","promise","browser","node","db"]
 }
