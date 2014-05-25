@@ -17,20 +17,16 @@ function createDb(done) {
 
                         done();
                     } else {
-                        throw new Error("Cannot update design:+", res.data.reason);
+                        done (new Error("Cannot update design:+", res.data.reason));
                     }
 
-                }).then(null, function (err) {
-                    throw new Error("Cannot update design:"+err.stack)
-                });
+                }).then(null, done);
         } else {
-            throw new Error("Cannot create database:", res.data.reason)
+            done (new Error("Cannot create database:", res.data.reason))
         }
 
 
-    }).then(null, function (err) {
-            throw new Error("Cannot connect to couchdb:"+ err.stack)
-        });
+    }).then(null, done);
 }
 
 describe("couch", function () {
@@ -41,14 +37,20 @@ describe("couch", function () {
         })
 
             .then(function (res) {
+                
                 couch.deleteDb().then(function(){
+                    
                     createDb(done);
+                },function(err){
+                    if (err.statusCode == 404)    {
+                        createDb(done);
+                    } else {
+                        done(err);
+                    }
                 });
 
             })
-            .then(null,function (err) {
-                createDb(done);
-            })
+            .then(null,done)
 
     });
 
