@@ -1,7 +1,7 @@
 {
   "name": "couch-promise",
   "description": "promise based couch client",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "homepage": "https://github.com/parroit/couch-promise",
   "author": {
     "name": "parroit",
@@ -17,7 +17,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/parroit/couch-promise/blob/master/LICENSE-MIT"
+      "url": "http://opensource.org/licenses/MIT"
     }
   ],
   "main": "lib/couch-promise",
@@ -25,13 +25,12 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "mocha --require ./test/init",
+    "test-watch": "mocha --require ./test/init --watch"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-mocha-test": "~0.7.0",
-    "expect.js": "~0.2.0",
-    "grunt-contrib-watch": "~0.5.3"
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0"
   },
   "dependencies": {
     "requesty": ">0.1.0",

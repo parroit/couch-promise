@@ -1,0 +1,14 @@
+{
+    "browser": true,
+    "esnext": false,
+    "indent": 4,
+    "node": true,
+    "globals": {
+        "Promise": true,
+        "describe": true,
+        "it": true,
+        "before": true,
+        "after": true
+
+    }
+}
